@@ -616,7 +616,6 @@ Version:	1.0
 	padding: 0;
 	margin: -25px 0 0 -25px;
 	color: #fff;
-	transition: ;
 	-webkit-transform: scale(3);
 	-moz-transform: scale(3);
 	transform: scale(3);
@@ -1421,7 +1420,6 @@ Version:	1.0
 	padding: 0;
 	margin: -25px 0 0 -25px;
 	color: #fff;
-	transition: ;
 	-webkit-transform: scale(3);
 	-moz-transform: scale(3);
 	transform: scale(3);
@@ -2003,7 +2001,6 @@ width: 100%;
 	line-height: 30px;
 	text-align: center;
 	border-radius: 100%;
-	text-align: ;
 }
 .blog.b-archives.single .blog-bottom  .prev-next{
 	float:right;
