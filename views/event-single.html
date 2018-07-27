@@ -348,24 +348,14 @@
                         {
                             padding: 20,
                             // when the user drags a node, also move/copy/delete the whole subtree starting with that node
-                            "commandHandler.copiesTree": true,
-                            "commandHandler.deletesTree": true,
-                            "draggingTool.dragsTree": true,
+                            "commandHandler.copiesTree": false,
+                            "commandHandler.deletesTree": false,
+                            "draggingTool.dragsTree": false,
                             initialContentAlignment: go.Spot.Center,  // center the whole graph
                             "undoManager.isEnabled": true
                         });
-                // 이거필요
-                // when the document is modified, add a "*" to the title and enable the "Save" button
-                myDiagram.addDiagramListener("Modified", function(e) {
-                    var button = document.getElementById("SaveButton");
-                    if (button) button.disabled = !myDiagram.isModified;
-                    var idx = document.title.indexOf("*");
-                    if (myDiagram.isModified) {
-                        if (idx < 0) document.title += "*";
-                    } else {
-                        if (idx >= 0) document.title = document.title.substr(0, idx);
-                    }
-                });
+
+
                 // 이거필요
                 // a node consists of some text with a line shape underneath
                 myDiagram.nodeTemplate =
@@ -375,12 +365,13 @@
                             {
                                 name: "TEXT",
                                 minSize: new go.Size(30, 15),
-                                editable: true
+                                editable: false
                             },
                             // remember not only the text string but the scale and the font in the node data
                             new go.Binding("text", "text").makeTwoWay(),
-                            new go.Binding("scale", "scale").makeTwoWay(),
-                            new go.Binding("font", "font").makeTwoWay()),
+                            new go.Binding("font", "font").makeTwoWay(),
+                            new go.Binding("stroke", "color").makeTwoWay()),
+
                         $(go.Shape, "LineH",
                             {
                                 stretch: go.GraphObject.Horizontal,
@@ -397,8 +388,6 @@
                         // make sure text "grows" in the desired direction
                         new go.Binding("locationSpot", "dir", function(d) { return spotConverter(d, false); })
                     );
-                // 이거필요
-                // a link is just a Bezier-curved line of the same color as the node to which it is connected
                 myDiagram.linkTemplate =
                     $(go.Link,
                         {
@@ -428,17 +417,32 @@
             }
             mySavedModel = { "class": "go.TreeModel",
                 "nodeDataArray": [
-                    {"key":0, "text":"Online ShopingMall", "loc":"0 0"},
-                    {"key":1, "parent":0, "text":"Node.js", "brush":"skyblue", "dir":"right", "loc":"150 -22" },
-                    {"key":2, "parent":0, "text":"Pug", "brush":"darkseagreen", "dir":"right", "loc":"150 43"},
-                    {"key":3, "parent":0, "text":"CSS", "brush":"palevioletred", "dir":"left", "loc":"-20 -31.75"},
-                    {"key":4, "parent":0, "text":"HTTP", "brush":"coral", "dir":"left", "loc":"-20 52.75"},
+                    {"key":0, "text":"쇼핑몰 만들기", "brush":"red","loc":"0 0", "color":"red"},
+                    {"key":1, "parent":0, "text":"상품관리", "brush":"skyblue", "dir":"right", "loc":"150 -20" },
+                    {"key":11, "parent":1, "text":"UI", "brush":"skyblue", "dir":"right", "loc":"250 -140" },
+                    {"key":12, "parent":1, "text":"상품 등록", "brush":"skyblue", "dir":"right", "loc":"250 -110" },
+                    {"key":13, "parent":1, "text":"삭제", "brush":"skyblue", "dir":"right", "loc":"250 -80" },
+                    {"key":14, "parent":1, "text":"수정", "brush":"skyblue", "dir":"right", "loc":"250 -50" },
+                    {"key":15, "parent":1, "text":"검색", "brush":"skyblue", "dir":"right", "loc":"250 -20" },
+                    {"key":2, "parent":0, "text":"상품추천", "brush":"darkseagreen", "dir":"right", "loc":"150 20"},
+                    {"key":21, "parent":2, "text":"UI", "brush":"darkseagreen", "dir":"right", "loc":"250 20"},
+                    {"key":22, "parent":2, "text":"상품 제안", "brush":"darkseagreen", "dir":"right", "loc":"250 50"},
+                    {"key":23, "parent":2, "text":"구글 ads 적용", "brush":"darkseagreen", "dir":"right", "loc":"250 80"},
+                    {"key":3, "parent":0, "text":"회원가입 및 로그인", "brush":"palevioletred", "dir":"left", "loc":"-20 -20"},
+                    {"key":31, "parent":3, "text":"삭제", "brush":"palevioletred", "dir":"left", "loc":"-150 -20"},
+                    {"key":32, "parent":3, "text":"수정", "brush":"palevioletred", "dir":"left", "loc":"-150 -50"},
+                    {"key":33, "parent":3, "text":"로그인", "brush":"palevioletred", "dir":"left", "loc":"-150 -80"},
+                    {"key":34, "parent":3, "text":"회원등록", "brush":"palevioletred", "dir":"left", "loc":"-150 -110"},
+                    {"key":35, "parent":3, "text":"UI", "brush":"palevioletred", "dir":"left", "loc":"-150 -140"},
+                    {"key":36, "parent":33, "text":"인증", "brush":"palevioletred", "dir":"left", "loc":"-250 -110"},
+                    {"key":4, "parent":0, "text":"제품 구매", "brush":"coral", "dir":"left", "loc":"-20 20"},
+                    {"key":41, "parent":4, "text":"UI", "brush":"coral", "dir":"left", "loc":"-150 20"},
+                    {"key":42, "parent":4, "text":"결제 모듈", "brush":"coral", "dir":"left", "loc":"-150 50"},
                 ]
             };
 
             // 이거필요
             function load() {
-
                 myDiagram.model = go.Model.fromJson(mySavedModel);
             }
 		</script>
