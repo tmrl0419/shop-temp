@@ -177,7 +177,12 @@
 								<h2><a href="event-single.html">Best Student Award Day 2018</a></h2>
 								<p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words</p>
 								<div id="sample">
-									<div id="myDiagramDiv" style="border: solid 1px black; width:100%; height:300px;"></div>
+									<div id="myDiagramDiv_mindmap" style="border: solid 1px black; width:100%; height:300px;"></div>
+									<div id="myDiagramDiv_serpentine" style="border: solid 1px black; width:100%; height:500px; min-width: 200px"></div>
+									<div style="width: 100%; display: flex; justify-content: space-between">
+										<div id="myPaletteDiv" style="width: 100px; margin-right: 2px; background-color: whitesmoke; border: solid 1px black"></div>
+										<div id="myDiagramDiv_flowchart" style="flex-grow: 1; height: 750px; border: solid 1px black"></div>
+									</div>
 								</div>
 								<p> littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humours</p>
 							</div>
@@ -302,6 +307,7 @@
 		<script src="goSamples.js"></script>
 		<script src="../js/jquery.min.js"></script>
         <script src="../js/jquery-migrate.min.js"></script>
+		<script src="SerpentineLayout.js"></script>
 		<!-- Popper JS-->
         <script src="../js/popper.min.js"></script>
 		<!-- Bootstrap JS-->
@@ -338,13 +344,116 @@
 		<!-- Main JS-->
         <script src="../js/main.js"></script>
 		<script id="code">
+            mySavedModel_mindmap = { "class": "go.TreeModel",
+                "nodeDataArray": [
+                    {"key":0, "text":"쇼핑몰 만들기", "brush":"red","loc":"0 0", "color":"red"},
+                    {"key":1, "parent":0, "text":"상품관리", "brush":"skyblue", "dir":"right", "loc":"150 -20" },
+                    {"key":11, "parent":1, "text":"UI", "brush":"skyblue", "dir":"right", "loc":"250 -140" },
+                    {"key":12, "parent":1, "text":"상품 등록", "brush":"skyblue", "dir":"right", "loc":"250 -110" },
+                    {"key":13, "parent":1, "text":"삭제", "brush":"skyblue", "dir":"right", "loc":"250 -80" },
+                    {"key":14, "parent":1, "text":"수정", "brush":"skyblue", "dir":"right", "loc":"250 -50" },
+                    {"key":15, "parent":1, "text":"검색", "brush":"skyblue", "dir":"right", "loc":"250 -20" },
+                    {"key":2, "parent":0, "text":"상품추천", "brush":"darkseagreen", "dir":"right", "loc":"150 20"},
+                    {"key":21, "parent":2, "text":"UI", "brush":"darkseagreen", "dir":"right", "loc":"250 20"},
+                    {"key":22, "parent":2, "text":"상품 제안", "brush":"darkseagreen", "dir":"right", "loc":"250 50"},
+                    {"key":23, "parent":2, "text":"구글 ads 적용", "brush":"darkseagreen", "dir":"right", "loc":"250 80"},
+                    {"key":3, "parent":0, "text":"회원가입 및 로그인", "brush":"palevioletred", "dir":"left", "loc":"-20 -20"},
+                    {"key":31, "parent":3, "text":"삭제", "brush":"palevioletred", "dir":"left", "loc":"-150 -20"},
+                    {"key":32, "parent":3, "text":"수정", "brush":"palevioletred", "dir":"left", "loc":"-150 -50"},
+                    {"key":33, "parent":3, "text":"로그인", "brush":"palevioletred", "dir":"left", "loc":"-150 -80"},
+                    {"key":34, "parent":3, "text":"회원등록", "brush":"palevioletred", "dir":"left", "loc":"-150 -110"},
+                    {"key":35, "parent":3, "text":"UI", "brush":"palevioletred", "dir":"left", "loc":"-150 -140"},
+                    {"key":36, "parent":33, "text":"인증", "brush":"palevioletred", "dir":"left", "loc":"-250 -110"},
+                    {"key":4, "parent":0, "text":"제품 구매", "brush":"coral", "dir":"left", "loc":"-20 20"},
+                    {"key":41, "parent":4, "text":"UI", "brush":"coral", "dir":"left", "loc":"-150 20"},
+                    {"key":42, "parent":4, "text":"결제 모듈", "brush":"coral", "dir":"left", "loc":"-150 50"},
+                ]
+            };
+            mySavedModel_flowchart = { "class": "go.GraphLinksModel",
+                "linkFromPortIdProperty": "fromPort",
+                "linkToPortIdProperty": "toPort",
+                "nodeDataArray": [
+                    {"category":"Comment", "loc":"360 -10", "text":"Kookie Brittle", "key":-13},
+                    {"key":-1, "category":"Start", "loc":"175 0", "text":"Start"},
+                    {"key":0, "loc":"-5 75", "text":"Preheat oven to 375 F"},
+                    {"key":1, "loc":"175 100", "text":"In a bowl, blend: 1 cup margarine, 1.5 teaspoon vanilla, 1 teaspoon salt"},
+                    {"key":2, "loc":"175 200", "text":"Gradually beat in 1 cup sugar and 2 cups sifted flour"},
+                    {"key":3, "loc":"175 290", "text":"Mix in 6 oz (1 cup) Nestle's Semi-Sweet Chocolate Morsels"},
+                    {"key":4, "loc":"175 380", "text":"Press evenly into ungreased 15x10x1 pan"},
+                    {"key":5, "loc":"355 85", "text":"Finely chop 1/2 cup of your choice of nuts"},
+                    {"key":6, "loc":"175 450", "text":"Sprinkle nuts on top"},
+                    {"key":7, "loc":"175 515", "text":"Bake for 25 minutes and let cool"},
+                    {"key":8, "loc":"175 585", "text":"Cut into rectangular grid"},
+                    {"key":-2, "category":"End", "loc":"175 660", "text":"Enjoy!"}
+                ],
+                "linkDataArray": [
+                    {"from":1, "to":2, "fromPort":"B", "toPort":"T"},
+                    {"from":2, "to":3, "fromPort":"B", "toPort":"T"},
+                    {"from":3, "to":4, "fromPort":"B", "toPort":"T"},
+                    {"from":4, "to":6, "fromPort":"B", "toPort":"T"},
+                    {"from":6, "to":7, "fromPort":"B", "toPort":"T"},
+                    {"from":7, "to":8, "fromPort":"B", "toPort":"T"},
+                    {"from":8, "to":-2, "fromPort":"B", "toPort":"T"},
+                    {"from":-1, "to":0, "fromPort":"B", "toPort":"T"},
+                    {"from":-1, "to":1, "fromPort":"B", "toPort":"T"},
+                    {"from":-1, "to":5, "fromPort":"B", "toPort":"T"},
+                    {"from":5, "to":4, "fromPort":"B", "toPort":"T"},
+                    {"from":0, "to":4, "fromPort":"B", "toPort":"T"}
+                ]}
+
             function init() {
                 // 이거필요
                 var $ = go.GraphObject.make;
+                myDiagram_serpentine =
+                    $(go.Diagram, "myDiagramDiv_serpentine",  // create a Diagram for the DIV HTML element
+                        {
+                            initialContentAlignment: go.Spot.Center,
+                            isTreePathToChildren: false,  // links go from child to parent
+                            layout: $(SerpentineLayout)  // defined in SerpentineLayout.js
+                        });
+                myDiagram_serpentine.nodeTemplate =
+                    $(go.Node, go.Panel.Auto,
+                        $(go.Shape, { figure: "RoundedRectangle", fill: "white" },
+                            new go.Binding("fill", "color")),
+                        $(go.TextBlock, { margin: 4 },
+                            new go.Binding("text", "key")));
+                myDiagram_serpentine.linkTemplate =
+                    $(go.Link, go.Link.Orthogonal,
+                        { corner: 5 },
+                        $(go.Shape),
+                        $(go.Shape, { toArrow: "Standard" }));
+                var model = new go.TreeModel();
+                model.nodeParentKeyProperty = "next";
+                model.nodeDataArray = [
+                    { key: "Alpha", next: "Beta", color: "coral" },
+                    { key: "Beta", next: "Gamma", color: "tomato" },
+                    { key: "Gamma", next: "Delta", color: "goldenrod" },
+                    { key: "Delta", next: "Epsilon", color: "orange" },
+                    { key: "Epsilon", next: "Zeta", color: "coral" },
+                    { key: "Zeta", next: "Eta", color: "tomato" },
+                    { key: "Eta", next: "Theta", color: "goldenrod" },
+                    { key: "Theta", next: "Iota", color: "orange" },
+                    { key: "Iota", next: "Kappa", color: "coral" },
+                    { key: "Kappa", next: "Lambda", color: "tomato" },
+                    { key: "Lambda", next: "Mu", color: "goldenrod" },
+                    { key: "Mu", next: "Nu", color: "orange" },
+                    { key: "Nu", next: "Xi", color: "coral" },
+                    { key: "Xi", next: "Omicron", color: "tomato" },
+                    { key: "Omicron", next: "Pi", color: "goldenrod" },
+                    { key: "Pi", next: "Rho", color: "orange" },
+                    { key: "Rho", next: "Sigma", color: "coral" },
+                    { key: "Sigma", next: "Tau", color: "tomato" },
+                    { key: "Tau", next: "Upsilon", color: "goldenrod" },
+                    { key: "Upsilon", next: "Phi", color: "orange" },
+                    { key: "Phi", next: "Chi", color: "coral" },
+                    { key: "Chi", next: "Psi", color: "tomato" },
+                    { key: "Psi", next: "Omega", color: "goldenrod" },
+                    { key: "Omega", color: "orange" }
+                ];
 
                 // 이거필요
-                myDiagram =
-                    $(go.Diagram, "myDiagramDiv",
+                myDiagram_mindmap =
+                    $(go.Diagram, "myDiagramDiv_mindmap",
                         {
                             padding: 20,
                             // when the user drags a node, also move/copy/delete the whole subtree starting with that node
@@ -358,7 +467,7 @@
 
                 // 이거필요
                 // a node consists of some text with a line shape underneath
-                myDiagram.nodeTemplate =
+                myDiagram_mindmap.nodeTemplate =
                     $(go.Node, "Vertical",
                         { selectionObjectName: "TEXT" },
                         $(go.TextBlock,
@@ -388,7 +497,7 @@
                         // make sure text "grows" in the desired direction
                         new go.Binding("locationSpot", "dir", function(d) { return spotConverter(d, false); })
                     );
-                myDiagram.linkTemplate =
+                myDiagram_mindmap.linkTemplate =
                     $(go.Link,
                         {
                             curve: go.Link.Bezier,
@@ -404,8 +513,247 @@
                             }).ofObject())
                     );
 
-                // read in the predefined graph using the JSON format data held in the "mySavedModel" textarea
-                load();
+                myDiagram_flowchart =
+                    $(go.Diagram, "myDiagramDiv_flowchart",  // must name or refer to the DIV HTML element
+                        {
+                            initialContentAlignment: go.Spot.Center,
+                            allowDrop: true,  // must be true to accept drops from the Palette
+                            "LinkDrawn": showLinkLabel,  // this DiagramEvent listener is defined below
+                            "LinkRelinked": showLinkLabel,
+                            scrollsPageOnFocus: false,
+                            "undoManager.isEnabled": true  // enable undo & redo
+                        });
+
+                // when the document is modified, add a "*" to the title and enable the "Save" button
+                myDiagram_flowchart.addDiagramListener("Modified", function(e) {
+                    var button = document.getElementById("SaveButton");
+                    if (button) button.disabled = !myDiagram_flowchart.isModified;
+                    var idx = document.title.indexOf("*");
+                    if (myDiagram_flowchart.isModified) {
+                        if (idx < 0) document.title += "*";
+                    } else {
+                        if (idx >= 0) document.title = document.title.substr(0, idx);
+                    }
+                });
+
+                // helper definitions for node templates
+
+                function nodeStyle() {
+                    return [
+                        // The Node.location comes from the "loc" property of the node data,
+                        // converted by the Point.parse static method.
+                        // If the Node.location is changed, it updates the "loc" property of the node data,
+                        // converting back using the Point.stringify static method.
+                        new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+                        {
+                            // the Node.location is at the center of each node
+                            locationSpot: go.Spot.Center
+                        }
+                    ];
+                }
+
+                // Define a function for creating a "port" that is normally transparent.
+                // The "name" is used as the GraphObject.portId,
+                // the "align" is used to determine where to position the port relative to the body of the node,
+                // the "spot" is used to control how links connect with the port and whether the port
+                // stretches along the side of the node,
+                // and the boolean "output" and "input" arguments control whether the user can draw links from or to the port.
+                function makePort(name, align, spot, output, input) {
+                    var horizontal = align.equals(go.Spot.Top) || align.equals(go.Spot.Bottom);
+                    // the port is basically just a transparent rectangle that stretches along the side of the node,
+                    // and becomes colored when the mouse passes over it
+                    return $(go.Shape,
+                        {
+                            fill: "transparent",  // changed to a color in the mouseEnter event handler
+                            strokeWidth: 0,  // no stroke
+                            width: horizontal ? NaN : 8,  // if not stretching horizontally, just 8 wide
+                            height: !horizontal ? NaN : 8,  // if not stretching vertically, just 8 tall
+                            alignment: align,  // align the port on the main Shape
+                            stretch: (horizontal ? go.GraphObject.Horizontal : go.GraphObject.Vertical),
+                            portId: name,  // declare this object to be a "port"
+                            fromSpot: spot,  // declare where links may connect at this port
+                            fromLinkable: output,  // declare whether the user may draw links from here
+                            toSpot: spot,  // declare where links may connect at this port
+                            toLinkable: input,  // declare whether the user may draw links to here
+                            cursor: "pointer",  // show a different cursor to indicate potential link point
+                            mouseEnter: function(e, port) {  // the PORT argument will be this Shape
+                                if (!e.diagram.isReadOnly) port.fill = "rgba(255,0,255,0.5)";
+                            },
+                            mouseLeave: function(e, port) {
+                                port.fill = "transparent";
+                            }
+                        });
+                }
+
+                function textStyle() {
+                    return {
+                        font: "bold 11pt Helvetica, Arial, sans-serif",
+                        stroke: "whitesmoke"
+                    }
+                }
+
+                // define the Node templates for regular nodes
+
+                myDiagram_flowchart.nodeTemplateMap.add("",  // the default category
+                    $(go.Node, "Table", nodeStyle(),
+                        // the main object is a Panel that surrounds a TextBlock with a rectangular Shape
+                        $(go.Panel, "Auto",
+                            $(go.Shape, "Rectangle",
+                                { fill: "#00A9C9", strokeWidth: 0 },
+                                new go.Binding("figure", "figure")),
+                            $(go.TextBlock, textStyle(),
+                                {
+                                    margin: 8,
+                                    maxSize: new go.Size(160, NaN),
+                                    wrap: go.TextBlock.WrapFit,
+                                    editable: true
+                                },
+                                new go.Binding("text").makeTwoWay())
+                        ),
+                        // four named ports, one on each side:
+                        makePort("T", go.Spot.Top, go.Spot.TopSide, false, true),
+                        makePort("L", go.Spot.Left, go.Spot.LeftSide, true, true),
+                        makePort("R", go.Spot.Right, go.Spot.RightSide, true, true),
+                        makePort("B", go.Spot.Bottom, go.Spot.BottomSide, true, false)
+                    ));
+
+                myDiagram_flowchart.nodeTemplateMap.add("Conditional",
+                    $(go.Node, "Table", nodeStyle(),
+                        // the main object is a Panel that surrounds a TextBlock with a rectangular Shape
+                        $(go.Panel, "Auto",
+                            $(go.Shape, "Diamond",
+                                { fill: "#00A9C9", strokeWidth: 0 },
+                                new go.Binding("figure", "figure")),
+                            $(go.TextBlock, textStyle(),
+                                {
+                                    margin: 8,
+                                    maxSize: new go.Size(160, NaN),
+                                    wrap: go.TextBlock.WrapFit,
+                                    editable: true
+                                },
+                                new go.Binding("text").makeTwoWay())
+                        ),
+                        // four named ports, one on each side:
+                        makePort("T", go.Spot.Top, go.Spot.Top, false, true),
+                        makePort("L", go.Spot.Left, go.Spot.Left, true, true),
+                        makePort("R", go.Spot.Right, go.Spot.Right, true, true),
+                        makePort("B", go.Spot.Bottom, go.Spot.Bottom, true, false)
+                    ));
+
+                myDiagram_flowchart.nodeTemplateMap.add("Start",
+                    $(go.Node, "Table", nodeStyle(),
+                        $(go.Panel, "Auto",
+                            $(go.Shape, "Circle",
+                                { minSize: new go.Size(40, 40), fill: "#79C900", strokeWidth: 0 }),
+                            $(go.TextBlock, "Start", textStyle(),
+                                new go.Binding("text"))
+                        ),
+                        // three named ports, one on each side except the top, all output only:
+                        makePort("L", go.Spot.Left, go.Spot.Left, true, false),
+                        makePort("R", go.Spot.Right, go.Spot.Right, true, false),
+                        makePort("B", go.Spot.Bottom, go.Spot.Bottom, true, false)
+                    ));
+
+                myDiagram_flowchart.nodeTemplateMap.add("End",
+                    $(go.Node, "Table", nodeStyle(),
+                        $(go.Panel, "Auto",
+                            $(go.Shape, "Circle",
+                                { minSize: new go.Size(40, 40), fill: "#DC3C00", strokeWidth: 0 }),
+                            $(go.TextBlock, "End", textStyle(),
+                                new go.Binding("text"))
+                        ),
+                        // three named ports, one on each side except the bottom, all input only:
+                        makePort("T", go.Spot.Top, go.Spot.Top, false, true),
+                        makePort("L", go.Spot.Left, go.Spot.Left, false, true),
+                        makePort("R", go.Spot.Right, go.Spot.Right, false, true)
+                    ));
+
+                myDiagram_flowchart.nodeTemplateMap.add("Comment",
+                    $(go.Node, "Auto", nodeStyle(),
+                        $(go.Shape, "File",
+                            { fill: "#EFFAB4", strokeWidth: 0 }),
+                        $(go.TextBlock, textStyle(),
+                            {
+                                margin: 5,
+                                maxSize: new go.Size(200, NaN),
+                                wrap: go.TextBlock.WrapFit,
+                                textAlign: "center",
+                                editable: true,
+                                font: "bold 12pt Helvetica, Arial, sans-serif",
+                                stroke: '#454545'
+                            },
+                            new go.Binding("text").makeTwoWay())
+                        // no ports, because no links are allowed to connect with a comment
+                    ));
+
+
+                // replace the default Link template in the linkTemplateMap
+                myDiagram_flowchart.linkTemplate =
+                    $(go.Link,  // the whole link panel
+                        {
+                            routing: go.Link.AvoidsNodes,
+                            curve: go.Link.JumpOver,
+                            corner: 5, toShortLength: 4,
+                            relinkableFrom: true,
+                            relinkableTo: true,
+                            reshapable: true,
+                            resegmentable: true,
+                            // mouse-overs subtly highlight links:
+                            mouseEnter: function(e, link) { link.findObject("HIGHLIGHT").stroke = "rgba(30,144,255,0.2)"; },
+                            mouseLeave: function(e, link) { link.findObject("HIGHLIGHT").stroke = "transparent"; }
+                        },
+                        new go.Binding("points").makeTwoWay(),
+                        $(go.Shape,  // the highlight shape, normally transparent
+                            { isPanelMain: true, strokeWidth: 8, stroke: "transparent", name: "HIGHLIGHT" }),
+                        $(go.Shape,  // the link path shape
+                            { isPanelMain: true, stroke: "gray", strokeWidth: 2 }),
+                        $(go.Shape,  // the arrowhead
+                            { toArrow: "standard", strokeWidth: 0, fill: "gray"}),
+                        $(go.Panel, "Auto",  // the link label, normally not visible
+                            { visible: false, name: "LABEL", segmentIndex: 2, segmentFraction: 0.5},
+                            new go.Binding("visible", "visible").makeTwoWay(),
+                            $(go.Shape, "RoundedRectangle",  // the label shape
+                                { fill: "#F8F8F8", strokeWidth: 0 }),
+                            $(go.TextBlock, "Yes",  // the label
+                                {
+                                    textAlign: "center",
+                                    font: "10pt helvetica, arial, sans-serif",
+                                    stroke: "#333333",
+                                    editable: true
+                                },
+                                new go.Binding("text").makeTwoWay())
+                        )
+                    );
+
+                // Make link labels visible if coming out of a "conditional" node.
+                // This listener is called by the "LinkDrawn" and "LinkRelinked" DiagramEvents.
+                function showLinkLabel(e) {
+                    var label = e.subject.findObject("LABEL");
+                    if (label !== null) label.visible = (e.subject.fromNode.data.figure === "Diamond");
+                }
+
+                // temporary links used by LinkingTool and RelinkingTool are also orthogonal:
+                myDiagram_flowchart.toolManager.linkingTool.temporaryLink.routing = go.Link.Orthogonal;
+                myDiagram_flowchart.toolManager.relinkingTool.temporaryLink.routing = go.Link.Orthogonal;
+
+                // initialize the Palette that is on the left side of the page
+                myPalette =
+                    $(go.Palette, "myPaletteDiv",  // must name or refer to the DIV HTML element
+                        {
+                            scrollsPageOnFocus: false,
+                            nodeTemplateMap: myDiagram_flowchart.nodeTemplateMap,  // share the templates used by myDiagram
+                            model: new go.GraphLinksModel([  // specify the contents of the Palette
+                                { category: "Start", text: "Start" },
+                                { text: "Step" },
+                                { category: "Conditional", text: "???" },
+                                { category: "End", text: "End" },
+                                { category: "Comment", text: "Comment" }
+                            ])
+                        });
+
+                myDiagram_flowchart.model = go.Model.fromJson(mySavedModel_flowchart);
+                myDiagram_serpentine.model = model;
+                myDiagram_mindmap.model = go.Model.fromJson(mySavedModel_mindmap);
             }
             // 이거필요
             function spotConverter(dir, from) {
@@ -415,36 +763,7 @@
                     return (from ? go.Spot.Right : go.Spot.Left);
                 }
             }
-            mySavedModel = { "class": "go.TreeModel",
-                "nodeDataArray": [
-                    {"key":0, "text":"쇼핑몰 만들기", "brush":"red","loc":"0 0", "color":"red"},
-                    {"key":1, "parent":0, "text":"상품관리", "brush":"skyblue", "dir":"right", "loc":"150 -20" },
-                    {"key":11, "parent":1, "text":"UI", "brush":"skyblue", "dir":"right", "loc":"250 -140" },
-                    {"key":12, "parent":1, "text":"상품 등록", "brush":"skyblue", "dir":"right", "loc":"250 -110" },
-                    {"key":13, "parent":1, "text":"삭제", "brush":"skyblue", "dir":"right", "loc":"250 -80" },
-                    {"key":14, "parent":1, "text":"수정", "brush":"skyblue", "dir":"right", "loc":"250 -50" },
-                    {"key":15, "parent":1, "text":"검색", "brush":"skyblue", "dir":"right", "loc":"250 -20" },
-                    {"key":2, "parent":0, "text":"상품추천", "brush":"darkseagreen", "dir":"right", "loc":"150 20"},
-                    {"key":21, "parent":2, "text":"UI", "brush":"darkseagreen", "dir":"right", "loc":"250 20"},
-                    {"key":22, "parent":2, "text":"상품 제안", "brush":"darkseagreen", "dir":"right", "loc":"250 50"},
-                    {"key":23, "parent":2, "text":"구글 ads 적용", "brush":"darkseagreen", "dir":"right", "loc":"250 80"},
-                    {"key":3, "parent":0, "text":"회원가입 및 로그인", "brush":"palevioletred", "dir":"left", "loc":"-20 -20"},
-                    {"key":31, "parent":3, "text":"삭제", "brush":"palevioletred", "dir":"left", "loc":"-150 -20"},
-                    {"key":32, "parent":3, "text":"수정", "brush":"palevioletred", "dir":"left", "loc":"-150 -50"},
-                    {"key":33, "parent":3, "text":"로그인", "brush":"palevioletred", "dir":"left", "loc":"-150 -80"},
-                    {"key":34, "parent":3, "text":"회원등록", "brush":"palevioletred", "dir":"left", "loc":"-150 -110"},
-                    {"key":35, "parent":3, "text":"UI", "brush":"palevioletred", "dir":"left", "loc":"-150 -140"},
-                    {"key":36, "parent":33, "text":"인증", "brush":"palevioletred", "dir":"left", "loc":"-250 -110"},
-                    {"key":4, "parent":0, "text":"제품 구매", "brush":"coral", "dir":"left", "loc":"-20 20"},
-                    {"key":41, "parent":4, "text":"UI", "brush":"coral", "dir":"left", "loc":"-150 20"},
-                    {"key":42, "parent":4, "text":"결제 모듈", "brush":"coral", "dir":"left", "loc":"-150 50"},
-                ]
-            };
 
-            // 이거필요
-            function load() {
-                myDiagram.model = go.Model.fromJson(mySavedModel);
-            }
 		</script>
     </body>
 </html>
